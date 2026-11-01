@@ -1,0 +1,42 @@
+/* Personal photos and expanded client references. */
+#about-anton, #worked-with { scroll-margin-top: 3rem; }
+.me_grid.has-photos {
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  grid-template-rows: auto auto;
+  column-gap: clamp(2rem,5vw,5rem);
+  row-gap: 2rem;
+  min-height: 0;
+  align-items: start;
+}
+.me_photos { position: relative; grid-column: 1; grid-row: 1 / span 2; width: 100%; padding: 0 12% 10% 0; align-self: center; }
+.me_photo { margin: 0; border: 7px solid #fff; background: #fff; border-radius: 1.4rem; overflow: hidden; box-shadow: 0 0 0 5px #ffffff40, 12px 16px 28px #00000016; }
+.me_photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.me_photo-primary { aspect-ratio: 3 / 4; transform: rotate(-3deg); }
+.me_photo-secondary { position: absolute; right: -1%; bottom: 0; width: 46%; aspect-ratio: 2 / 3; transform: rotate(5deg); box-shadow: 0 0 0 4px #ffffff60, 8px 14px 24px #00000025; }
+.me_grid.has-photos .me_content { grid-column: 2; grid-row: 1; }
+.me_grid.has-photos .me_info { grid-column: 2; grid-row: 2; position: relative; inset: auto; max-width: none; padding: 1.75rem; }
+.social-grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 1.75rem 1.4rem; align-items: center; width: 100%; max-width: 78rem; margin: 0 auto; }
+.social-grid-link { grid-column: span 2; max-width: none; background: #fff; }
+.social-grid-link img { display: block; width: 100%; height: auto; }
+.social-grid-link.is-irena { grid-column: 2 / span 2; transform: rotate(-1deg); }
+.social-grid-link.is-max { grid-column: 4 / span 2; transform: rotate(1deg); }
+.social-grid-link.is-irena:hover,.social-grid-link.is-max:hover { transform: rotate(0deg) translateY(-3px); }
+.social-grid-link:focus-visible { outline: 3px solid #7cff61; outline-offset: 6px; }
+@media (min-width:768px) and (max-width:991px) {
+ .me_grid.has-photos { display: grid; column-gap: 2rem; }
+ .me_grid.has-photos .me_info { grid-column: 1 / -1; grid-row: 3; }
+ .me_photos { grid-row: 1 / span 2; }
+ .me_grid.has-photos .me_content { align-self: center; }
+}
+@media (max-width:767px) {
+ .me_grid.has-photos { display: flex; gap: 2rem; }
+ .me_photos { width: 100%; max-width: 29rem; margin: 0 auto; padding: 0 13% 10% 0; }
+ .me_photo { border-width: 5px; border-radius: 1rem; }
+ .me_photo-secondary { right: 0; width: 46%; }
+ .me_grid.has-photos .me_content { max-width: none; margin-top: 0; }
+ .me_grid.has-photos .me_info { padding: 1.5rem; }
+ .social-grid { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
+ .social-grid-link { width: 100%; max-width: 30rem; }
+ .padding-section-me { padding-bottom: 4rem; }
+}
+@media (prefers-reduced-motion: reduce) { .social-grid-link { transition: none; } }
